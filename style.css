@@ -1,0 +1,275 @@
+body{
+    background-image: url(./assets/background.jpg);
+    backdrop-filter: blur(5px);
+}
+@font-face {
+    font-family:('truetype');
+    src: url(gameria.ttf);
+}
+
+#button:hover{
+    cursor: pointer;
+}
+.lettre:hover{
+    cursor: pointer;
+    box-shadow:  0 0 10px #0066ff;
+    transform: scale(1.05);
+    position: relative;
+    top: 0;
+} 
+.lettre{
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-family: 'truetype';
+    font-weight: bold;
+    font-size: 20pt;
+    width: 10%;
+    border-radius: 15pt;
+    box-shadow: 0 5px 0 #003CC5;
+    /* border-color: rgb(10, 10, 81);  */
+    border: rgb(10, 10, 81);
+    background-image: url(./assets/background.jpg);
+    backdrop-filter: blur(5px);
+    transition: all 0.2s ease-in-out;
+    will-change: transform, box-shadow;
+}
+#button{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 40px;
+    margin-top: 70px;
+    padding: 10px;
+    border:2pt solid blue; 
+    border-radius: 15pt;
+    gap: 1px; 
+    row-gap: 1px;
+    column-gap:normal;
+    margin-left: 22%;
+    margin-right: 22%;
+    /* flex-grow: 10; */
+}
+#essais{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    text-align: 20pt;
+    align-items: self-end;
+    font-size: 25pt;
+    font-family: 'truetype';
+    font-weight: bold;
+    width: 100%;
+    padding-block: 10pt;
+    margin-left: 30px;
+    /* padding-left: 10pt;
+    padding-right: 10pt; */
+}
+#restartZone {
+    display: flex;
+    justify-content: center; /* центрируем горизонтально */
+    align-items: center;
+    margin-top: 30px;
+}
+#recommencer:hover{
+    cursor: pointer;
+    box-shadow: 0 0 20px #0066ff, 0 0 40px #3399ff;;
+    position: relative;
+    top: 5px;
+    transform: scale(1.05);
+}
+#recommencer{
+    font-family:'truetype';
+    font-weight: bold;
+    border-radius: 15pt;
+    font-size: 20pt;
+    width: 100%;
+    padding: 1em;
+    margin: 10px auto;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-image: url(./assets/background.jpg);
+    backdrop-filter: blur(5px);
+    border: rgb(10, 10, 81);
+    box-shadow: 0 5px 0 #003CC5;
+    color: #000;              /* текст читаемый */
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    will-change: transform, box-shadow;
+    animation: fadeIn 0.4s ease-in-out;
+}
+#recommencer:active {
+    transform: scale(0.97);
+    box-shadow: none;
+    position: relative;
+    top: 3px;
+}
+#mots{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items:flex-end;
+    font-family:'truetype';
+    font-weight: bold;
+    width: 100%;
+    padding-left: 10pt;
+    padding-right: 10pt;
+    text-align: center;
+    font-size: 30pt;
+}
+#messageZone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    pointer-events: none;
+    /* width: 100%;
+    margin-top: 20px;
+    min-height: 60px; */
+}
+.message {
+    font-family: 'truetype';
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    transition: opacity 0.5s ease-out;
+    /* display: inline-block; */
+    /* transform: scale(0.8); */
+}
+.message.win {
+    background-color: rgba(0, 200, 0, 0.8);
+    animation: flashGreen 1s ease-in-out, fadeIn 0.5s forwards;
+}
+.message.lose {
+    background-color: rgba(200, 0, 0, 0.8);
+    animation: flashRed 1s ease-in-out, fadeIn 0.5s forwards;
+}
+.fadeOut {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+@keyframes fadeIn {
+    0% {
+    opacity: 0;
+    transform: scale(0.8);
+    }
+    100% {
+    opacity: 1;
+    transform: scale(1);
+    }
+}
+
+/* @keyframes fadeOut {
+    0% {
+    opacity: 1;
+    transform: scale(1);
+    }
+    100% {
+    opacity: 0;
+    transform: scale(0.9);
+    } */
+
+@keyframes flashGreen {
+    0% { box-shadow: 0 0 0px rgba(0,255,0,0); background-color: rgba(0,255,0,0.1); }
+    50% { box-shadow: 0 0 50px rgba(0,255,0,0.8); background-color: rgba(0,255,0,0.9); }
+    100% { box-shadow: 0 0 0px rgba(0,255,0,0); background-color: rgba(0,255,0,0.3); }
+}
+
+/* Мягкий «вспыхивающий» эффект при проигрыше */
+@keyframes flashRed {
+    0% { box-shadow: 0 0 0px rgba(255,0,0,0); background-color: rgba(255,0,0,0.1); }
+    50% { box-shadow: 0 0 50px rgba(255,0,0,0.8); background-color: rgba(255,0,0,0.9); }
+    100% { box-shadow: 0 0 0px rgba(255,0,0,0); background-color: rgba(255,0,0,0.3); }
+}
+.display-text{
+    color:blue;
+}
+#flowerZone {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 5%;
+    padding: 0;
+    width: fit-content;
+    overflow: visible;
+}
+
+#flower {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    transition: transform 1s ease-in-out;
+}
+
+.petal {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 1;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    transform-origin: center bottom;
+}
+
+.center {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 55px;
+    height: 55px;
+    background: rgb(247, 247, 69);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px gold;
+}
+
+/* 🌸 Ровное симметричное расположение лепестков по кругу */
+#p1 { background: rgb(155, 2, 2);    top: 10%;  left: 50%; transform: translate(-50%, -50%) rotate(0deg); }
+#p2 { background: rgb(211, 137, 0); top: 25%; left: 85%; transform: translate(-50%, -50%) rotate(60deg); }
+#p3 { background: rgb(179, 243, 3); top: 60%; left: 85%; transform: translate(-50%, -50%) rotate(120deg); }
+#p4 { background: rgb(3, 245, 3);  top: 80%; left: 50%; transform: translate(-50%, -50%) rotate(180deg); }
+#p5 { background: rgb(39, 39, 243);   top: 60%; left: 15%; transform: translate(-50%, -50%) rotate(240deg); }
+#p6 { background: rgb(248, 4, 248); top: 25%; left: 15%; transform: translate(-50%, -50%) rotate(300deg); }
+
+.petal.fallen {
+    opacity: 0;
+    transform: translateY(200px) rotate(360deg) scale(0.5);
+    }
+
+.flower-win {
+    animation: spinFlower 4s linear infinite;
+}
+
+.flower-lose .petal:not(.fallen) {
+    opacity: 0;
+    transform: translateY(200px) rotate(360deg) scale(0.5);
+    animation: all 1.5s ease-in;
+}
+
+@keyframes spinFlower {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@keyframes fallAndFade {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(200px) rotate(360deg) scale(0.5);
+    }
+}
